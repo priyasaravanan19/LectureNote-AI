@@ -1,0 +1,621 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LectureNote AI | Smart Study Assistant</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    🎓
+                </div>
+
+                <div>
+                    <h2>LectureNote</h2>
+                    <span>AI Study Assistant</span>
+                </div>
+
+            </div>
+
+
+            <nav>
+
+                <button class="nav-item active" onclick="showSection('dashboard')">
+                    🏠 Dashboard
+                </button>
+
+                <button class="nav-item" onclick="showSection('record')">
+                    🎤 Record Lecture
+                </button>
+
+                <button class="nav-item" onclick="showSection('notes')">
+                    📝 My Notes
+                </button>
+
+                <button class="nav-item" onclick="showSection('summary')">
+                    📚 AI Summary
+                </button>
+
+                <button class="nav-item" onclick="showSection('quiz')">
+                    ❓ Quiz
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <p>✨ Smart Learning</p>
+
+                <small>
+                    Turn your lectures into useful
+                    study material with LectureNote AI.
+                </small>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main">
+
+
+            <!-- HEADER -->
+
+            <header class="header">
+
+                <div>
+
+                    <h1>LectureNote AI</h1>
+
+                    <p>
+                        Turn your lectures into smart study notes.
+                    </p>
+
+                </div>
+
+
+                <div class="status">
+
+                    <span class="status-dot"></span> AI Ready
+
+                </div>
+
+            </header>
+
+
+
+            <!-- ================= DASHBOARD ================= -->
+
+            <section id="dashboard" class="section active-section">
+
+
+                <div class="welcome-card">
+
+                    <div>
+
+                        <span class="small-title">
+                            WELCOME TO LECTURENOTE AI 👋
+                        </span>
+
+
+                        <h2>
+                            Learn smarter,<br> not harder.
+                        </h2>
+
+
+                        <p>
+                            Record your lecture or paste your notes. LectureNote AI organizes your content into summaries, key points and quiz questions.
+                        </p>
+
+
+                        <button class="primary-btn" onclick="showSection('record')">
+
+                            🎤 Start Learning
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="hero-icon">
+                        🎓
+                    </div>
+
+                </div>
+
+
+
+                <!-- STATISTICS -->
+
+                <div class="stats">
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            📝
+                        </div>
+
+                        <h3 id="noteCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Notes Created
+                        </p>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            📚
+                        </div>
+
+                        <h3 id="summaryCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Summaries
+                        </p>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            ❓
+                        </div>
+
+                        <h3 id="quizCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Quiz Questions
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FEATURES -->
+
+                <div class="feature-grid">
+
+
+                    <div class="feature-card" onclick="showSection('record')">
+
+                        <span>🎤</span>
+
+                        <h3>
+                            Speech to Text
+                        </h3>
+
+                        <p>
+                            Speak your lecture and convert your speech into text.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="feature-card" onclick="showSection('notes')">
+
+                        <span>📝</span>
+
+                        <h3>
+                            Smart Notes
+                        </h3>
+
+                        <p>
+                            Write or paste your lecture notes easily.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="feature-card" onclick="showSection('summary')">
+
+                        <span>✨</span>
+
+                        <h3>
+                            AI Summary
+                        </h3>
+
+                        <p>
+                            Generate concise summaries and important points.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="feature-card" onclick="showSection('quiz')">
+
+                        <span>❓</span>
+
+                        <h3>
+                            Study Quiz
+                        </h3>
+
+                        <p>
+                            Generate questions from your lecture notes.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= RECORD ================= -->
+
+            <section id="record" class="section">
+
+
+                <div class="section-title">
+
+                    <span>
+                        🎤
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Record Lecture
+                        </h2>
+
+                        <p>
+                            Speak naturally and convert your lecture into text.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="record-card">
+
+
+                    <div class="mic-circle" id="micCircle">
+
+                        🎤
+
+                    </div>
+
+
+                    <h2 id="recordStatus">
+                        Ready to Record
+                    </h2>
+
+
+                    <p id="recordMessage">
+                        Click the button and start speaking.
+                    </p>
+
+
+                    <button class="record-btn" id="recordBtn" onclick="toggleRecording()">
+
+                        🎤 Start Recording
+
+                    </button>
+
+
+
+                    <!-- TRANSCRIPT -->
+
+                    <div class="transcript-box">
+
+
+                        <div class="box-header">
+
+                            <h3>
+                                Live Transcript
+                            </h3>
+
+
+                            <button onclick="clearTranscript()">
+
+                                Clear
+
+                            </button>
+
+                        </div>
+
+
+                        <textarea id="transcript" placeholder="Your speech will appear here...">
+                        </textarea>
+
+
+                    </div>
+
+
+                    <button class="primary-btn" onclick="useTranscript()">
+
+                        ✨ Use This Lecture
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= NOTES ================= -->
+
+            <section id="notes" class="section">
+
+
+                <div class="section-title">
+
+                    <span>
+                        📝
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            My Lecture Notes
+                        </h2>
+
+                        <p>
+                            Enter or paste your lecture content.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="editor-card">
+
+
+                    <textarea id="notesInput" placeholder="Paste or type your lecture notes here...
+
+Example:
+
+Artificial Intelligence is a branch of computer science.
+Machine learning allows computers to learn from data.
+Deep learning uses neural networks to solve complex problems.
+AI is used in education, healthcare, finance and transportation.">
+                    </textarea>
+
+
+                    <div class="editor-footer">
+
+
+                        <span id="wordCount">
+                            0 words
+                        </span>
+
+
+                        <button class="primary-btn" onclick="generateNotes()">
+
+                            ✨ Generate AI Notes
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= SUMMARY ================= -->
+
+            <section id="summary" class="section">
+
+
+                <div class="section-title">
+
+                    <span>
+                        📚
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            AI Summary
+                        </h2>
+
+                        <p>
+                            Your lecture transformed into useful study material.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EMPTY STATE -->
+
+                <div id="emptySummary" class="empty-state">
+
+                    <div>
+                        📚
+                    </div>
+
+                    <h3>
+                        No summary yet
+                    </h3>
+
+                    <p>
+                        Enter lecture notes and click Generate AI Notes.
+                    </p>
+
+                </div>
+
+
+
+                <!-- RESULTS -->
+
+                <div id="summaryContent" class="result-container hidden">
+
+
+                    <!-- SUMMARY -->
+
+                    <div class="result-card summary-card">
+
+
+                        <div class="result-header">
+
+                            <h3>
+                                ✨ Lecture Summary
+                            </h3>
+
+
+                            <button onclick="speakText('summaryText')">
+
+                                🔊 Listen
+
+                            </button>
+
+                        </div>
+
+
+                        <p id="summaryText"></p>
+
+                    </div>
+
+
+
+                    <!-- KEY POINTS -->
+
+                    <div class="result-card">
+
+                        <h3>
+                            📌 Key Points
+                        </h3>
+
+
+                        <ul id="keyPoints"></ul>
+
+                    </div>
+
+
+
+                    <!-- KEYWORDS -->
+
+                    <div class="result-card">
+
+                        <h3>
+                            🔑 Important Keywords
+                        </h3>
+
+
+                        <div id="keywords" class="keyword-list">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= QUIZ ================= -->
+
+            <section id="quiz" class="section">
+
+
+                <div class="section-title">
+
+                    <span>
+                        ❓
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Study Quiz
+                        </h2>
+
+                        <p>
+                            Test your understanding of the lecture.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EMPTY QUIZ -->
+
+                <div id="emptyQuiz" class="empty-state">
+
+                    <div>
+                        ❓
+                    </div>
+
+                    <h3>
+                        No quiz available
+                    </h3>
+
+                    <p>
+                        Generate notes first to create quiz questions.
+                    </p>
+
+                </div>
+
+
+
+                <!-- QUIZ RESULTS -->
+
+                <div id="quizContent" class="quiz-container hidden">
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
